@@ -14,7 +14,6 @@ jobs:
           apt-get install --no-install-recommends -y ca-certificates curl make python3-distutils
           curl -O https://bootstrap.pypa.io/pip/3.6/get-pip.py
           python3 get-pip.py
-          pip3 install pytest
         run: |
-          pwd && python3 -c "import os; print(os.uname())" 
-          cat afile
+          python3 -m pip install eyes-images
+          python3 -m applitools.eyes_universal --version
