@@ -7,4 +7,8 @@ jobs:
       with:
         arch: aarch64
         distro: ubuntu18.04
-        run: uname -a
+        install: |
+          set -e
+          apt-get update
+          apt-get install -y python3-pip
+        run: python3 -c "import os; print(os.uname())"
