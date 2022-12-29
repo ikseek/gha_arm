@@ -10,8 +10,10 @@ jobs:
         install: |
           set -e
           apt-get update
-          apt-get install --no-install-recommends -y curl ca-certificates python3-distutils
+          apt-get install --no-install-recommends -y ca-certificates curl make python3-distutils
           curl -O https://bootstrap.pypa.io/pip/3.6/get-pip.py
           python3 get-pip.py
           pip3 install pytest
-        run: pwd && python3 -c "import os; print(os.uname())"
+        run: |
+          pwd && python3 -c "import os; print(os.uname())" 
+          cat afile
