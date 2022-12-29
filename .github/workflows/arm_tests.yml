@@ -10,7 +10,8 @@ jobs:
         install: |
           set -e
           apt-get update
-          apt-get install --no-install-recommends -y python3
-          python3 -m ensurepip
-          pip3 install --upgrade pip setuptools pytest
+          apt-get install --no-install-recommends -y python3-distutils
+          python3 -c "from urllib.request import urlretrieve; urlretrieve('https://bootstrap.pypa.io/pip/3.6/get-pip.py', filename='get-pip.py')"
+          python3 get-pip.py
+          pip3 install pytest
         run: pwd && python3 -c "import os; print(os.uname())"
